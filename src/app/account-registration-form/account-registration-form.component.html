@@ -1,0 +1,18 @@
+<label for="firstName">Firstname: </label>
+<input type="text" [formControl]="firstName">
+<br>
+
+<label for="lastName">Lastname: </label>
+<input type="text" [formControl]="lastName">
+<br>
+
+<label for="city">City: </label>
+<input type="text" [formControl]="city">
+<br>
+
+<label for="address">Address: </label>
+<input type="text" [formControl]="address">
+<br>
+
+<button (click)="updateName()">Update firstName</button>
+<p>You're {{ firstName.value }}</p>

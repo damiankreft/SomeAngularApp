@@ -1,18 +1,20 @@
-<label for="firstName">Firstname: </label>
-<input type="text" [formControl]="firstName">
-<br>
+<div class="mb-3">
+    <label for="firstName" class="form-label">Firstname: </label>
+    <input type="text" [formControl]="firstName" class="form-control">
+    <br>
 
-<label for="lastName">Lastname: </label>
-<input type="text" [formControl]="lastName">
-<br>
+    <label for="lastName" class="form-label">Lastname: </label>
+    <input type="text" [formControl]="lastName" class="form-control">
+    <br>
 
-<label for="city">City: </label>
-<input type="text" [formControl]="city">
-<br>
+    <label for="city" class="form-label">City: </label>
+    <input type="text" [formControl]="city" class="form-control">
+    <br>
 
-<label for="address">Address: </label>
-<input type="text" [formControl]="address">
-<br>
+    <label for="address" class="form-label">Address: </label>
+    <input type="text" [formControl]="address" class="form-control">
+    <br>
 
-<button (click)="updateName()">Update firstName</button>
-<p>You're {{ firstName.value }}</p>
+    <button (click)="updateName()" class="btn btn-primary">Update firstName</button>
+    <p>You're {{ firstName.value }}</p>
+</div>

@@ -8,7 +8,7 @@ import { AccountService } from '../account.service';
   styleUrls: ['./account-information.component.scss']
 })
 export class AccountInformationComponent implements OnInit {
-  account: Account = { email: "", password: "" };
+  private account: Account,
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {

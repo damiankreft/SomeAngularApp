@@ -1,20 +1,31 @@
 <div class="mb-3">
-    <label for="firstName" class="form-label">Firstname: </label>
-    <input type="text" [formControl]="firstName" class="form-control">
-    <br>
+    <div class="form-group row">
+        <label for="firstName" class="col-sm-2 col-form-label">Firstname: </label>
+        <div class="col-sm-2">
+            <input type="text" [formControl]="firstName" class="form-control">
+        </div>
+    </div>
 
-    <label for="lastName" class="form-label">Lastname: </label>
-    <input type="text" [formControl]="lastName" class="form-control">
-    <br>
+    <div class="form-group row">
+        <label for="lastName" class="col-sm-2 col-form-label">Lastname: </label>
+        <div class="col-sm-2">
+            <input type="text" [formControl]="lastName" class="form-control">
+        </div>
+    </div>
 
-    <label for="city" class="form-label">City: </label>
-    <input type="text" [formControl]="city" class="form-control">
-    <br>
+    <div class="form-group row">
+        <label for="city" class="col-sm-2 col-form-label">City: </label>
+        <div class="col-sm-2">
+            <input type="text" [formControl]="city" class="form-control">
+        </div>
+    </div>
 
-    <label for="address" class="form-label">Address: </label>
-    <input type="text" [formControl]="address" class="form-control">
-    <br>
+    <div class="form-group row">
+        <label for="address" class="col-sm-2 col-form-label">Address: </label>
+        <div class="col-sm-2">
+            <input type="text" [formControl]="address" class="form-control">
+        </div>
+    </div>
 
-    <button (click)="updateName()" class="btn btn-primary">Update firstName</button>
-    <p>You're {{ firstName.value }}</p>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </div>

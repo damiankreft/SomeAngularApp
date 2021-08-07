@@ -16,9 +16,4 @@ export class AccountRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  updateName() {
-    this.firstName.setValue('Nancy (just like that framework)');
-  }
-
 }

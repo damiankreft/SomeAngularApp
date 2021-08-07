@@ -3,9 +3,6 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-account-registration-form',
-  // template: `
-  // Favorite Color: <input type="text" [formControl]="accountRegistrationForm">
-  // `
   templateUrl: './account-registration-form.component.html'
   // styleUrls: ['./account-registration-form.component.scss']
 })

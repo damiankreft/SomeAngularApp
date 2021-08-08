@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Account } from './account';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
+  
   // TODO: Load AccountService uri from a config file.
   private accountUrl = "http://localhost:5000/accounts/"
   constructor(private http: HttpClient) {

@@ -1,5 +1,4 @@
-export interface Account {
-    email: string;
-    password: string;
-
+export class Account {
+    public email!: string;
+    public passwordHash!: string;
 }

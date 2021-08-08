@@ -4,16 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AccountRegistrationFormComponent } from './account-registration-form/account-registration-form.component';
+import { AccountRegisterComponent } from './accountComponents/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AccountInformationComponent } from './account-information/account-information.component';
+import { AccountSignIn } from './accountComponents/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountRegistrationFormComponent,
-    AccountInformationComponent
+    AccountRegisterComponent,
+    AccountSignIn
   ],
   imports: [
     BrowserModule,

@@ -7,15 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AccountService {
-  
+
   // TODO: Load AccountService uri from a config file.
-  private accountUrl = "http://localhost:5000/accounts/"
+  private accountUrl = 'http://localhost:5000/accounts/';
   constructor(private http: HttpClient) {
   }
 
   getAccount(email: string): Observable<Account> {
-    let accountUri = this.accountUrl + email;
+    const accountUri = this.accountUrl + email;
     // return this.http.get<Account>(accountUri)
-    return this.http.get<Account>(this.accountUrl + "test1@example.com")
+    return this.http.get<Account>(this.accountUrl + 'test1@example.com');
   }
 }

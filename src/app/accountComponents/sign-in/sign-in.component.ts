@@ -12,7 +12,7 @@ export class AccountSignIn implements OnInit {
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.getAccount("test1@example.com")
+    this.getAccount('test1@example.com');
   }
 
   getAccount(email: string): void {

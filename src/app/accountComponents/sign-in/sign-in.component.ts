@@ -7,7 +7,7 @@ import { AccountService } from '../../account.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class AccountSignIn implements OnInit {
+export class AccountSignInComponent implements OnInit {
   public account: Account = new Account();
   constructor(private accountService: AccountService) { }
 

@@ -7,13 +7,13 @@ import { AppComponent } from './app.component';
 import { AccountRegisterComponent } from './accountComponents/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AccountSignIn } from './accountComponents/sign-in/sign-in.component';
+import { AccountSignInComponent } from './accountComponents/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AccountRegisterComponent,
-    AccountSignIn
+    AccountSignInComponent
   ],
   imports: [
     BrowserModule,

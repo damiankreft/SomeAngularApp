@@ -1,20 +1,13 @@
-<p>Your account details:</p>
-<!-- Block level -->
-<div id="account-information">
-    <div class="row">
-        <div class="col-sm-1 font-weight-bold">
-            Email:
+<div class="container d-flex">
+    <form class="form-horizontal m-auto gap-3">
+        <div class="form-group row">
+            <label for="login" class="col-form-label">Email</label>
+            <input type="email" [formControl]="email" class="form-control" placeholder="john.doe@example.com">
         </div>
-        <div class="col-md-2 font-weight-bold border">
-            {{account.email}}
+        <div class="form-group row">
+            <label for="password" class="col-form-label">Password</label>
+            <input type="password" [formControl]="password" class="form-control" placeholder="********">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-1 font-weight-bold">
-            Password:
-        </div>
-        <div class="col-md-2 font-weight-bold border">
-            {{account.passwordHash}}
-        </div>
-    </div>    
+        <button type="submit" class="btn-primary col-sm-12 mt-3">Submit</button>
+    </form>
 </div>

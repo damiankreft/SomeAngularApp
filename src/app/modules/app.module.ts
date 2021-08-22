@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AccountRegisterComponent } from './components/accountComponents/register/register.component';
+import { AppRoutingModule } from '../app-routing.module';
+import { AppComponent } from '../components/app/app.component';
+import { AccountRegisterComponent } from '../components/accountComponents/register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AccountSignInComponent } from './components/sign-in/sign-in.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
+import { AccountSignInComponent } from '../components/accountComponents/sign-in/sign-in.component';
+import { NavigationComponent } from '../components/navigation/navigation.component';
 
 @NgModule({
   declarations: [

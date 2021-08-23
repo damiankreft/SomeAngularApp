@@ -8,6 +8,6 @@
             <label for="password" class="col-form-label">Password</label>
             <input type="password" [formControl]="password" class="form-control" placeholder="********">
         </div>
-        <button type="submit" class="btn-primary col-sm-12 mt-3">Submit</button>
+        <button (click)="login()" type="submit" class="btn-primary col-sm-12 mt-3">Submit</button>
     </form>
 </div>

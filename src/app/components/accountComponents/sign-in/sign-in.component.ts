@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Account } from '../../../models/account';
-import { AccountService } from '../../../services/accountService/account.service';
 import { FormControl } from '@angular/forms';
+import { LoginService } from 'src/app/services/LoginService/login.service';
+import { JwtToken } from 'src/app/models/jwt-token';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,14 +11,19 @@ import { FormControl } from '@angular/forms';
 export class AccountSignInComponent implements OnInit {
   email = new FormControl();
   password = new FormControl();
-  public account: Account = new Account();
-  constructor(private accountService: AccountService) { }
+  public jwtToken: JwtToken = new JwtToken();
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
-    this.getAccount('test1@example.com');
   }
 
-  getAccount(email: string): void {
-    this.accountService.getAccount(email).subscribe(res => this.account = res);
+  login(): void {
+    this.loginService.login(this.email.value, this.password.value).subscribe(
+      (res) => { this.jwtToken = res; localStorage.setItem("access_token", this.jwtToken.token); },
+      (error) => {console.log(error)}, 
+      () => { 
+        localStorage.setItem("access_token", this.jwtToken.token);
+      }
+      );
   }
 }

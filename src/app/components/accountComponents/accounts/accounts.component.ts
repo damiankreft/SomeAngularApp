@@ -9,11 +9,11 @@ import { AccountService } from 'src/app/services/accountService/account.service'
 })
 export class AccountsComponent implements OnInit {
 
-  private accounts!: AccountDto[];
+  public accounts!: AccountDto[];
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.accountService.getAccounts().subscribe((data) => { this.accounts = data; console.log(data)});
+    this.accountService.getAccounts().subscribe((data) => { this.accounts = data; });
   }
 }

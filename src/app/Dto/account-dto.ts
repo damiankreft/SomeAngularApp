@@ -1,4 +1,4 @@
 export class AccountDto {
-    public Email!: string;
-    public Role!: string;
+    public email!: string;
+    public role!: string;
 }

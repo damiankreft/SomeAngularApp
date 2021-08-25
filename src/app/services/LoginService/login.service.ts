@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { LoginDto } from 'src/app/Dto/login-dto';
 import { JwtToken } from 'src/app/models/jwt-token';
+import { shareReplay, map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,16 @@ export class LoginService {
   }
 
   // TODO: read URI from app.settings
-  login(email: string, password: string): Observable<JwtToken> {
+  login(loginDto: LoginDto) {
     const loginUri = 'http://localhost:5000/login';
     
     const httpParams = new HttpParams()
-      .append("Email", email).append("password", password);
+      .append("Email", loginDto.email).append("password", loginDto.password);
 
-    const loginDto: LoginDto = { 
-      Email: email,
-      Password: password
-    };
-
-    return this.http.post<JwtToken>(loginUri, loginDto, { headers: this.headers,  params: httpParams } );
+    return this.http.post<{token: string}>(loginUri, loginDto, { headers: this.headers,  params: httpParams } )
+      .pipe(shareReplay())
+      .subscribe((res: any) => {
+        localStorage.setItem("access_token", res.token)
+      });
   }
 }

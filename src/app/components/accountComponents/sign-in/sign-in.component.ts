@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { LoginService } from 'src/app/services/LoginService/login.service';
 import { JwtToken } from 'src/app/models/jwt-token';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,21 +10,23 @@ import { JwtToken } from 'src/app/models/jwt-token';
   styleUrls: ['./sign-in.component.scss']
 })
 export class AccountSignInComponent implements OnInit {
-  email = new FormControl();
-  password = new FormControl();
+  public loginForm: FormGroup;
+
+  // email = new FormControl();
+  // password = new FormControl();
   public jwtToken: JwtToken = new JwtToken();
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, public formBuilder: FormBuilder) { 
+    this.loginForm = this.formBuilder.group({
+      email: new FormControl(''),
+      password: new FormControl('')
+    })
+  }
 
   ngOnInit(): void {
   }
 
   login(): void {
-    this.loginService.login(this.email.value, this.password.value).subscribe(
-      (res) => { this.jwtToken = res; localStorage.setItem("access_token", this.jwtToken.token); },
-      (error) => {console.log(error)}, 
-      () => { 
-        localStorage.setItem("access_token", this.jwtToken.token);
-      }
-      );
+    console.log(this.loginForm.value);
+    this.loginService.login(this.loginForm.value);
   }
 }

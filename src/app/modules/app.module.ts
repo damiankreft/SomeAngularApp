@@ -29,7 +29,8 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:5000", "localhost:5001"]
+        allowedDomains: ["localhost:5000", "localhost:5001"],
+        disallowedRoutes: ["localhost:5000/sign-in", "localhost:5001/sign-in"]
       }
     }),
     ReactiveFormsModule,

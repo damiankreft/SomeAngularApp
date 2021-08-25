@@ -1,4 +1,6 @@
 <p>Accounts:</p>
-<li *ngFor="let account of accounts">
-    {{account.email}}, {{account.role}}
-</li>
+<ul class="accounts">
+    <li *ngFor="let account of accounts">
+        {{account.username}}
+    </li>
+</ul>

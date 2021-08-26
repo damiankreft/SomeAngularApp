@@ -1,6 +1,12 @@
-<p>Accounts:</p>
-<ul class="accounts">
-    <li *ngFor="let account of accounts">
-        {{account.username}}
-    </li>
-</ul>
+<div class="d-flex flex-column mb-1 bd-highlight align-items-center">
+    <div id="accounts-header">
+        <h2>Accounts</h2> 
+    </div>
+    <hr>
+    <div class="item p-2 mb-1 col-sm-3" *ngFor="let account of accounts; let odd = odd; let even = even;" (click)="onSelect(account)" [class.selected]="account === selectedAccount" [ngClass]="{ odd: odd, even: even }">
+        <h5>{{account.username | uppercase}}</h5>
+        <div *ngIf="selectedAccount === account">
+            <span><b>{{selectedAccount.email}}</b> ({{selectedAccount.role}}) from <b>{{selectedAccount.lastAttemptIp}}</b></span>
+        </div>
+    </div>
+</div>

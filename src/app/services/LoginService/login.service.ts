@@ -1,9 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDto } from 'src/app/Dto/login-dto';
-import { JwtToken } from 'src/app/models/jwt-token';
-import { shareReplay, map} from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

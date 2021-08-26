@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Account } from '../../models/account';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AccountDto } from 'src/app/Dto/account-dto';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  private accountsUri = 'http://localhost:5000/accounts/';
-
-  // Remove line below - move it somewhere else or utilize a better approach.
-  private headers: HttpHeaders;
+  private accountsUri: string;
       
   constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders().append("Control-Allow-Origin", "*");
+    this.accountsUri = environment.apiHost + "accounts";
   }
 
   getAccount(email: string): Observable<Account> {

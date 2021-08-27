@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { LoginDto } from 'src/app/Dto/login-dto';
 import { shareReplay } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
 
   private headers = new HttpHeaders()
       .append("Control-Allow-Origin", "*");
-  constructor(private http: HttpClient) {
+  constructor(public jwtHelper: JwtHelperService, private http: HttpClient) {
     this.loginUri = environment.apiHost + 'login'
   }
 
@@ -25,5 +26,11 @@ export class AuthService {
       .subscribe((res: any) => {
         localStorage.setItem("access_token", res.token)
       });
+  }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem("access_token");
+
+    return !this.jwtHelper.isTokenExpired(token === null ? "" : token);
   }
 }

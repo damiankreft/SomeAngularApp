@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { LoginService } from 'src/app/services/LoginService/login.service';
+import { AuthService } from 'src/app/services/LoginService/login.service';
 import { JwtToken } from 'src/app/models/jwt-token';
 import { textChangeRangeIsUnchanged } from 'typescript';
 
@@ -15,7 +15,7 @@ export class AccountSignInComponent implements OnInit {
   // email = new FormControl();
   // password = new FormControl();
   public jwtToken: JwtToken = new JwtToken();
-  constructor(private loginService: LoginService, public formBuilder: FormBuilder) { 
+  constructor(private loginService: AuthService, public formBuilder: FormBuilder) { 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(''),
       password: new FormControl('')

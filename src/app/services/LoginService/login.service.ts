@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthService {
   private loginUri: string;
 
   private headers = new HttpHeaders()

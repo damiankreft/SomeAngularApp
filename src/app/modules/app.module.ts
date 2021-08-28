@@ -7,6 +7,7 @@ import { AccountRegisterComponent } from '../components/accountComponents/regist
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccountSignInComponent } from '../components/accountComponents/sign-in/sign-in.component';
+import { LogoutComponent as AccountLogoutComponent } from '../components/accountComponents/logout/logout.component';
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AccountsComponent } from '../components/accountComponents/accounts/accounts.component';
@@ -20,6 +21,7 @@ export function tokenGetter() {
     AppComponent,
     AccountRegisterComponent,
     AccountSignInComponent,
+    AccountLogoutComponent,
     AccountsComponent,
     NavigationComponent
   ],

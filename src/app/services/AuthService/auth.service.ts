@@ -17,6 +17,10 @@ export class AuthService {
     this.loginUri = environment.apiHost + 'login'
   }
 
+  logout(): void {
+    localStorage.removeItem("access_token");
+  }
+
   login(loginDto: LoginDto) {
     const httpParams = new HttpParams()
       .append("Email", loginDto.email).append("password", loginDto.password);

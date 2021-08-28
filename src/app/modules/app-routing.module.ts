@@ -11,8 +11,7 @@ const routes: Routes = [
   { path: 'sign-in', component: AccountSignInComponent },
   { path: 'accounts', component: AccountsComponent, canActivate: [RoleGuard], data: {
     expectedRole: "admin",
-  } },
-  { path: ''}
+  } }
 ];
 
 @NgModule({

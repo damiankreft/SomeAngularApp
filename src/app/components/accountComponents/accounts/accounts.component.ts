@@ -19,6 +19,11 @@ export class AccountsComponent implements OnInit {
   }
 
   onSelect(account: AccountDto): void {
-    this.selectedAccount = account;
+    if (this.selectedAccount === account) {
+      this.selectedAccount = undefined;
+    }
+    else {
+      this.selectedAccount = account;
+    }
   }
 }

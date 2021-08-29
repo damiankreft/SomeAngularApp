@@ -10,6 +10,7 @@ export class AccountRegisterComponent implements OnInit {
   email = new FormControl('');
   username = new FormControl('');
   password = new FormControl('');
+  repeatedPassword = new FormControl('');
   role  = new FormControl();
 
   constructor() { }

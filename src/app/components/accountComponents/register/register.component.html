@@ -1,30 +1,37 @@
 <div class="container d-flex align-items-center">
     <form class="form-horizontal m-auto">
         <div class="form-group row">
-            <label for="firstName" class="col-form-label">Firstname</label>
+            <label for="Email" class="col-form-label">Email</label>
             <div>
-                <input type="text" [formControl]="firstName" class="form-control" placeholder="Firstname">
+                <input type="email" [formControl]="email" class="form-control" placeholder="john.doe@example.com">
             </div>
         </div>
     
         <div class="form-group row">
-            <label for="lastName" class="col-form-label">Lastname</label>
+            <label for="username" class="col-form-label">Username</label>
             <div>
-                <input type="text" [formControl]="lastName" class="form-control" placeholder="Lastname">
+                <input type="text" [formControl]="username" class="form-control" placeholder="Username">
             </div>
         </div>
     
         <div class="form-group row">
-            <label for="city" class="col-form-label">City</label>
+            <label for="password" class="col-form-label">Password</label>
             <div>
-                <input type="text" [formControl]="city" class="form-control" placeholder="City">
+                <input type="password" [formControl]="password" class="form-control" placeholder="********">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="repeatedPassword" class="col-form-label">Repeat password</label>
+            <div>
+                <input type="repeatedPassword" [formControl]="repeatedPassword" class="form-control" placeholder="********">
             </div>
         </div>
     
         <div class="form-group row">
-            <label for="address" class="col-form-label">Address</label>
+            <label for="role" class="col-form-label">Role</label>
             <div>
-                <input type="text" [formControl]="address" class="form-control" placeholder="Address">
+                <input type="text" [formControl]="role" class="form-control" placeholder="Role">
             </div>
         </div>
     

@@ -15,4 +15,8 @@ export class LogoutComponent {
     this.auth.logout();
     this.router.navigate([""]);
   }
+
+  isAuthenticated(): boolean {
+    return this.auth.isAuthenticated();
+  }
 }

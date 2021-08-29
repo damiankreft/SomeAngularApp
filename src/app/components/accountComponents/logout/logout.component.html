@@ -1,1 +1,1 @@
-<a routerLink="" (click)="logoutClick()">Logout</a>
+<a *ngIf="isAuthenticated()" routerLink="" (click)="logoutClick()">Logout</a>

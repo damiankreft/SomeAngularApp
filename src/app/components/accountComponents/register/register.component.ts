@@ -7,10 +7,10 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class AccountRegisterComponent implements OnInit {
-  firstName = new FormControl('');
-  lastName = new FormControl('');
-  city = new FormControl('');
-  address = new FormControl();
+  email = new FormControl('');
+  username = new FormControl('');
+  password = new FormControl('');
+  role  = new FormControl();
 
   constructor() { }
 

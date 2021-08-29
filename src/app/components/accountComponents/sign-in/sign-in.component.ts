@@ -11,9 +11,6 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 })
 export class AccountSignInComponent implements OnInit {
   public loginForm: FormGroup;
-
-  // email = new FormControl();
-  // password = new FormControl();
   public jwtToken: JwtToken = new JwtToken();
   constructor(private loginService: AuthService, public formBuilder: FormBuilder) { 
     this.loginForm = this.formBuilder.group({

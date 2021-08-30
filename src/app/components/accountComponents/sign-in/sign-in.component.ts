@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 
@@ -7,16 +7,13 @@ import { AuthService } from 'src/app/services/AuthService/auth.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class AccountSignInComponent implements OnInit {
+export class AccountSignInComponent {
   public loginForm: FormGroup;
   constructor(private loginService: AuthService, public formBuilder: FormBuilder) { 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(''),
       password: new FormControl('')
     })
-  }
-
-  ngOnInit(): void {
   }
 
   login(): void {

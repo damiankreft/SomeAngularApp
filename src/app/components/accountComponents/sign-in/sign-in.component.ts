@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
-import { JwtToken } from 'src/app/models/jwt-token';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,7 +9,6 @@ import { JwtToken } from 'src/app/models/jwt-token';
 })
 export class AccountSignInComponent implements OnInit {
   public loginForm: FormGroup;
-  public jwtToken: JwtToken = new JwtToken();
   constructor(private loginService: AuthService, public formBuilder: FormBuilder) { 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(''),

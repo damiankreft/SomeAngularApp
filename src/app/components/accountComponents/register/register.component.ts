@@ -8,8 +8,8 @@ import { AccountService } from 'src/app/services/accountService/account.service'
   styleUrls: ['./register.component.scss']
 })
 export class AccountRegisterComponent {
+  public clicked = false;
   public registerForm: FormGroup;
-  
 
   constructor(private accountService: AccountService, public formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
@@ -22,6 +22,13 @@ export class AccountRegisterComponent {
    }
 
   onSubmit(): void {
-    this.accountService.register(this.registerForm.value).subscribe();
+    this.clicked = true;
+    this.accountService.register(this.registerForm.value)
+      .subscribe(
+        () => {},
+        () => { this.clicked = false; },
+        () => {
+          this.registerForm.reset();
+        });
   }
 }

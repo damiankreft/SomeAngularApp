@@ -35,6 +35,6 @@
             </div>
         </div>
     
-        <button type="submit" (click)="onSubmit()" class="col-sm-12 btn btn-primary mt-2">Submit</button>
+        <button #btn type="submit" [disabled]="clicked" (click)="onSubmit();" class="col-sm-12 btn btn-primary mt-2">Submit</button>
     </form>
 </div>

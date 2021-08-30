@@ -22,7 +22,6 @@ export class AccountRegisterComponent {
    }
 
   onSubmit(): void {
-    console.log(this.registerForm.value);
     this.accountService.register(this.registerForm.value).subscribe();
   }
 }

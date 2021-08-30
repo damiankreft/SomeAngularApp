@@ -26,7 +26,7 @@ export class AccountService {
     return this.http.get<AccountDto[]>(this.accountsUri);
   }
 
-  register(registerDto: RegisterDto): void {
-    this.http.post(this.accountsUri, registerDto).pipe(shareReplay());
+  register(registerDto: RegisterDto): Observable<any> {
+    return this.http.post(this.accountsUri, registerDto).pipe(shareReplay());
   }
 }

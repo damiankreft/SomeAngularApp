@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginDto } from 'src/app/Dto/login-dto';
-import { shareReplay } from 'rxjs/operators';
+import { shareReplay, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,12 +20,9 @@ export class AuthService {
     localStorage.removeItem("access_token");
   }
 
-  login(loginDto: LoginDto) {
+  login(loginDto: LoginDto): Observable<any> {
     return this.http.post<{token: string}>(this.loginUri, loginDto)
-      .pipe(shareReplay())
-      .subscribe((res: any) => {
-        localStorage.setItem("access_token", res.token)
-      });
+      .pipe(shareReplay(), tap((res) => { localStorage.setItem("access_token", res.token); }));
   }
 
   isAuthenticated(): boolean {

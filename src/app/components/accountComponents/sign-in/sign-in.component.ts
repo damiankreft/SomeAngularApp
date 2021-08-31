@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/AuthService/auth.service';
 })
 export class AccountSignInComponent {
   public loginForm: FormGroup;
-  constructor(private loginService: AuthService, public formBuilder: FormBuilder) { 
+  constructor(private loginService: AuthService, public formBuilder: FormBuilder, private router: Router) { 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(''),
       password: new FormControl('')
@@ -17,6 +18,7 @@ export class AccountSignInComponent {
   }
 
   login(): void {
-    this.loginService.login(this.loginForm.value);
+    this.loginService.login(this.loginForm.value)
+      .subscribe(() => this.router.navigate(['']));
   }
 }

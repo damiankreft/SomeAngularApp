@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 
 @Component({
@@ -8,20 +8,27 @@ import { AuthService } from 'src/app/services/AuthService/auth.service';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss']
 })
-export class AccountSignInComponent {
+export class AccountSignInComponent implements OnInit{
+  private returnUrl!: string;
   public loginForm: FormGroup;
-  constructor(private loginService: AuthService, public formBuilder: FormBuilder, private router: Router) { 
+
+
+  constructor(
+    public formBuilder: FormBuilder, 
+    private loginService: AuthService,
+    private router: Router, 
+    private route: ActivatedRoute) { 
     this.loginForm = this.formBuilder.group({
       email: new FormControl(''),
       password: new FormControl('')
     })
   }
+  ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
   login(): void {
     this.loginService.login(this.loginForm.value)
-      .subscribe(() => {
-        this.router.navigate(['']);
-        this.loginForm.reset();
-      });
+      .subscribe(data => { this.router.navigateByUrl(this.returnUrl)});
   }
 }

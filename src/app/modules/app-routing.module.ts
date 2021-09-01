@@ -5,11 +5,12 @@ import { AccountRegisterComponent } from '../components/accountComponents/regist
 import { AccountSignInComponent } from '../components/accountComponents/sign-in/sign-in.component';
 import { HomeComponent } from '../components/home/home.component';
 import { AuthGuardService as AuthGuard }  from '../services/authGuardService/auth-guard.service';
+import { LoginGuardService as LoginGuard } from '../services/loginGuardService/login-guard.service';
 import { RoleGuardService as RoleGuard } from '../services/roleGuardService/role-guard.service';
 
 const routes: Routes = [
   { path: 'register', component: AccountRegisterComponent, canActivate: [AuthGuard] },
-  { path: 'sign-in', component: AccountSignInComponent },
+  { path: 'sign-in', component: AccountSignInComponent, canActivate: [LoginGuard] },
   { path: 'accounts', component: AccountsComponent, canActivate: [RoleGuard], data: {
     expectedRole: "admin",
   } },

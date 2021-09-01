@@ -19,6 +19,9 @@ export class AccountSignInComponent {
 
   login(): void {
     this.loginService.login(this.loginForm.value)
-      .subscribe(() => this.router.navigate(['']));
+      .subscribe(() => {
+        this.router.navigate(['']);
+        this.loginForm.reset();
+      });
   }
 }

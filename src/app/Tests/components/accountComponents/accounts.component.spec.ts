@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccountsComponent } from '../../../components/accountComponents/accounts/accounts.component';
 
 describe('AccountsComponent', () => {
@@ -14,7 +14,12 @@ describe('AccountsComponent', () => {
   });
 
   beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ]
+    });
+
     fixture = TestBed.createComponent(AccountsComponent);
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

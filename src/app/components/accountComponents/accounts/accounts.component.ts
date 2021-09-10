@@ -15,15 +15,7 @@ export class AccountsComponent implements OnInit {
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.accountService.getAccounts().subscribe((data) => { this.accounts = data; });
-  }
-
-  onSelect(account: AccountDto): void {
-    if (this.selectedAccount === account) {
-      this.selectedAccount = undefined;
-    }
-    else {
-      this.selectedAccount = account;
-    }
+    this.accountService.getAccounts()
+      .subscribe((data) => { this.accounts = data; });
   }
 }

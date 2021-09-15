@@ -9,26 +9,26 @@ import { AuthService } from 'src/app/services/AuthService/auth.service';
   styleUrls: ['./sign-in.component.scss']
 })
 export class AccountSignInComponent implements OnInit{
+  public loginForm!: FormGroup;
   private returnUrl!: string;
-  public loginForm: FormGroup;
-
 
   constructor(
     public formBuilder: FormBuilder, 
     private loginService: AuthService,
     private router: Router, 
     private route: ActivatedRoute) { 
+  }
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: new FormControl(''),
       password: new FormControl('')
-    })
-  }
-  ngOnInit(): void {
+    });
+
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   login(): void {
     this.loginService.login(this.loginForm.value)
-      .subscribe(data => { this.router.navigateByUrl(this.returnUrl)});
+      .subscribe(() => { this.router.navigateByUrl(this.returnUrl)});
   }
 }

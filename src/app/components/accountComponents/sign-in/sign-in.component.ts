@@ -1,3 +1,4 @@
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -10,6 +11,7 @@ import { AuthService } from 'src/app/services/AuthService/auth.service';
 })
 export class AccountSignInComponent implements OnInit{
   public loginForm!: FormGroup;
+  public invalidCredentials = false;
   private returnUrl!: string;
 
   constructor(
@@ -29,6 +31,21 @@ export class AccountSignInComponent implements OnInit{
 
   login(): void {
     this.loginService.login(this.loginForm.value)
-      .subscribe(() => { this.router.navigateByUrl(this.returnUrl)});
+      .subscribe(
+        () => { 
+          this.router.navigateByUrl(this.returnUrl);
+        },
+        (error) => {
+          this.loginErrorHandler(error);
+        });
+  }
+
+  loginErrorHandler(error: HttpErrorResponse | any): void {
+    if (!error.status)
+      this.router.navigate(['error']);
+    else if (error.status == HttpStatusCode.Unauthorized) {
+      this.invalidCredentials = true;
+      console.log("Credentials are invalid.");
+    }
   }
 }

@@ -9,5 +9,8 @@
             <input type="password" formControlName="password" name="current-password" id="current-password" autocomplete="current-password" placeholder="********">
         </div>
         <button type="submit" (click)="login()" class="btn-primary col-sm-12 mt-3">Submit</button>
+        <div class="alert alert-danger" *ngIf="invalidCredentials">
+            Invalid credentials.
+        </div>
     </form>
 </div>

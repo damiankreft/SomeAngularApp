@@ -11,7 +11,6 @@ import { LogoutComponent as AccountLogoutComponent } from '../components/account
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AccountsComponent } from '../components/accountComponents/accounts/accounts.component';
-import { HomeComponent } from '../components/home/home.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -20,12 +19,11 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     AccountRegisterComponent,
     AccountSignInComponent,
     AccountLogoutComponent,
     AccountsComponent,
-    NavigationComponent
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
